@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bio · Portfolio</title>
+    
+    <!-- Google Fonts for a clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /* Reset and base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f6f9fc 0%, #e9f1f8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: #1e293b;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        /* ===== PROFILE HEADER ===== */
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.4);
+            flex-shrink: 0;
+        }
+
+        .intro h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #0f172a, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro .tagline {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .intro .location {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-top: 6px;
+        }
+        .intro .location i {
+            margin-right: 6px;
+            color: #3b82f6;
+        }
+
+        /* ===== BIO ===== */
+        .bio {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 1.2rem 1.6rem;
+            border-radius: 28px;
+            margin-bottom: 2.2rem;
+            border-left: 4px solid #2563eb;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #1e293b;
+        }
+
+        /* ===== SKILLS ===== */
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0f172a;
+        }
+        .section-title i {
+            color: #2563eb;
+            font-size: 1.3rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2.2rem;
+        }
+
+        .skill-tag {
+            background: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1e293b;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .skill-tag i {
+            color: #2563eb;
+            font-size: 0.9rem;
+        }
+        .skill-tag:hover {
+            border-color: #2563eb;
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+
+        /* ===== HOBBIES ===== */
+        .hobbies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 28px;
+            margin-bottom: 2.2rem;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 1rem 1.6rem;
+            border-radius: 40px;
+        }
+        .hobbies-list span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.98rem;
+        }
+        .hobbies-list i {
+            color: #7c3aed;
+            width: 18px;
+            text-align: center;
+        }
+
+        /* ===== SOCIAL LINKS ===== */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.4rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 0.55rem 1.5rem;
+            border-radius: 60px;
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid #e2e8f0;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .social-btn i {
+            font-size: 1.2rem;
+            width: 22px;
+            color: #475569;
+        }
+        .social-btn:hover {
+            border-color: #2563eb;
+            background: #ffffff;
+            box-shadow: 0 8px 18px -8px rgba(37, 99, 235, 0.25);
+            transform: translateY(-3px);
+        }
+
+        /* ===== FOOTER NOTE ===== */
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.04);
+            padding-top: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 540px) {
+            .card {
+                padding: 1.8rem 1.2rem;
+            }
+            .profile-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+            .intro h1 {
+                font-size: 2rem;
+            }
+            .hobbies-list {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- ==================== -->
+    <!-- PROFILE HEADER       -->
+    <!-- ==================== -->
+    <div class="profile-header">
+        <div class="avatar">👨‍💻</div>   <!-- Change emoji or text -->
+        <div class="intro">
+            <h1>YOUR NAME</h1>            <!-- ← Change name -->
+            <div class="tagline">⚡ Web Developer · Creator · Learner</div>   <!-- ← Change tagline -->
+            <div class="location">
+                <i class="fas fa-map-pin"></i> India · Open to work
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== -->
+    <!-- BIO / ABOUT          -->
+    <!-- ==================== -->
+    <div class="bio">
+        <i class="fas fa-quote-left" style="color:#2563eb; margin-right:6px; opacity:0.7;"></i>
+        Hey there! I'm a passionate developer who loves building things for the web. 
+        I believe in clean code, great design, and continuous learning. 
+        When I'm not coding, I'm probably reading or exploring new tech.
+        <!-- ✏️ Change this paragraph to your own bio -->
+    </div>
+
+    <!-- ==================== -->
+    <!-- SKILLS               -->
+    <!-- ==================== -->
+    <div class="section-title">
+        <i class="fas fa-code"></i> Skills
+    </div>
+    <div class="skills-grid">
+        <!-- ✏️ Add/remove skills. You can add icons like <i class="fab fa-html5"></i> -->
+        <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+        <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+        <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+        <span class="skill-tag"><i class="fab fa-react"></i> React</span>
+        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+        <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+        <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+        <span class="skill-tag"><i class="fas fa-cloud"></i> AWS</span>
+    </div>
+
+    <!-- ==================== -->
+    <!-- HOBBIES / INTERESTS  -->
+    <!-- ==================== -->
+    <div class="section-title">
+        <i class="fas fa-heart"></i> Hobbies & Interests
+    </div>
+    <div class="hobbies-list">
+        <!-- ✏️ Change icons and text -->
+        <span><i class="fas fa-headphones"></i> Music</span>
+        <span><i class="fas fa-book-open"></i> Reading</span>
+        <span><i class="fas fa-gamepad"></i> Gaming</span>
+        <span><i class="fas fa-camera"></i> Photography</span>
+        <span><i class="fas fa-robot"></i> AI / ML</span>
+        <span><i class="fas fa-plane"></i> Travel</span>
+    </div>
+
+    <!-- ==================== -->
+    <!-- SOCIAL / CONTACT     -->
+    <!-- ==================== -->
+    <div class="section-title">
+        <i class="fas fa-link"></i> Connect with me
+    </div>
+    <div class="social-links">
+        <!-- ✏️ Replace '#' with your actual profile links -->
+        <a href="#" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+        <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <a href="#" class="social-btn"><i class="fab fa-x-twitter"></i> Twitter</a>
+        <a href="#" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+        <a href="#" class="social-btn"><i class="fab fa-dev"></i> Dev.to</a>
+    </div>
+
+    <div class="footer-note">
+        ✦ Built with ❤️ & deployed via GitHub Pages ✦
+    </div>
+
+</div>
+
+</body>
+</html>
